@@ -1,0 +1,1 @@
+My name is Ying Tee. Here is the appended message using apendFileSync.
