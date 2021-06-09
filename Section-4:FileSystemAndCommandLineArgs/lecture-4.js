@@ -68,8 +68,19 @@ yargs.parse();
 
 
 //We are trying to access the data store in Json file 
-const dataBuffer = fs.readFileSync('../Playground/1-json.json');
+const dataBuffer = fs.readFileSync('../Playground/data.json');
 const dataJson = dataBuffer.toString();
-const data = JSON.parse(dataJson);
-console.log(data.title); 
+const user = JSON.parse(dataJson);
+console.log(user);
+
+user.name = "Ying Tee";
+user.age = 28;
+const userJson = JSON.stringify(user);
+fs.writeFileSync('../Playground/data.json', userJson); 
 //console.log(dataBuffer); 
+
+//Challenge: Work with JSON and the file System 
+// 1. Load and parse the JSON data 
+// 2. Challenge the name and age properly using your info 
+// 3. Stringfy the changed object and overwrite the original date 
+// 4. Test your work by viewing data in the JSON file 
