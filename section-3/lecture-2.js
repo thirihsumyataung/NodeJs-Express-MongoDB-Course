@@ -3,7 +3,7 @@ const  add = require('./utils'); //firstName=require('./utils');
 const sum = add(4, -2); 
 //console.log(firstName);
 console.log(sum); 
-//It will print two results . 
+// It will print two results . 
 // One from utils.js and one from lecture-2.js
 
 
