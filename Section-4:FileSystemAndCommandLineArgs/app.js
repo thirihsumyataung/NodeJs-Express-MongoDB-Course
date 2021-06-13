@@ -1,8 +1,12 @@
-// Getting Input from Users
+// Storing Data with Json 
 // Using Yargs 
+
+const fs = require('fs');
+
 const chalk = require('chalk');
 const yargs = require('yargs');
 
+const notes = require('./lecture-6');  // Lecture - 5 
 console.log(process.argv); 
 const command = process.argv[2]; //Third item by index 
 
@@ -25,8 +29,7 @@ yargs.command({
         }
     },
     handler: function (argv) {
-        console.log("Title : " + argv.title);
-        console.log("Body : " + argv.body);
+        notes.addNote(argv.title, argv.body); 
     }
 })
 
@@ -34,8 +37,15 @@ yargs.command({
 yargs.command({
     command: "remove",
     describe: "remove a note",
-    handler: function () {
-        console.log("Removing the note!")
+    builder: {
+        title: {
+            describe: 'Note Title',
+            demandOption: true,
+            type: 'string'
+        }
+    }, 
+    handler: function (argv) {
+        notes.removeNotes(argv.title); 
     }
 })
 
@@ -58,13 +68,17 @@ yargs.command({
 })
 
 //add, read, remove, list 
+
 yargs.parse();
+
 //console.log(yargs.argv);
 
 
-//Challenge: Add an option to yargs 
+//We are trying to access the data store in Json file  
+//console.log(dataBuffer); 
 
-// 1. Setup a body option for the add command 
-// 2. Configure a description , make it required, and for it to be a string 
-// 3. Log the body value in the handler function 
-// 4. Test your work ! 
+//Challenge: Work with JSON and the file System 
+// 1. Load and parse the JSON data 
+// 2. Challenge the name and age properly using your info 
+// 3. Stringfy the changed object and overwrite the original date 
+// 4. Test your work by viewing data in the JSON file 

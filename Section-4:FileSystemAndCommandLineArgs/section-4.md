@@ -7,3 +7,5 @@ npm i yargs
 ```
 - Lecture 3 : Argument Parsing with Yargs: Part 2
 - Lecture 4: Storing data in JSON 
+- Lecture 5: Adding a Note 
+- Lecture 6: Removing a Note 
